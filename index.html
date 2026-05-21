@@ -402,6 +402,15 @@
   }
 
   function cerrarOverlay(){
+    // Abrir Google Form con datos del cliente prellenados
+    const hoy=new Date();
+    const fecha=hoy.getDate()+'/'+(hoy.getMonth()+1)+'/'+hoy.getFullYear();
+    const formUrl='https://docs.google.com/forms/d/e/1FAIpQLScUJcc9mWnvelHDtQC0Jx4hRVH-5LzDO0cWDBjMvJgtwEO-Hw/viewform?usp=pp_url'
+      +'&entry.262806279='+encodeURIComponent(nombreCliente)
+      +'&entry.1935465142='+encodeURIComponent(clienteId)
+      +'&entry.1744398745='+encodeURIComponent(fecha)
+      +'&entry.404823414='+encodeURIComponent('Pizza deep dish x2 canjeada');
+    window.open(formUrl,'_blank');
     document.getElementById('overlay').classList.remove('show');
     visitas=[];nombreCliente='';
     localStorage.removeItem('mapos_v4');localStorage.removeItem('mapos_nombre');localStorage.removeItem('mapos_id');
